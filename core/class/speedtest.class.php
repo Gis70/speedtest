@@ -48,26 +48,26 @@ class speedtest extends eqLogic {
 		$return['log'] = __CLASS__ . '_update';
 		$return['progress_file'] = jeedom::getTmpFolder(__CLASS__) . '/dependance';
 		$return['state'] = 'nok';
-		try {
-			$pip = com_shell::execute(system::getCmdSudo() . 'which pip');
-		} catch (Exception $exc) {
-			log::add(__CLASS__, 'debug', 'Impossible de trouver pip ' . $exc);
-			$return['state'] = 'nok';
-			return $return;
-		}
-		$pip = rtrim($pip);
-		try {
-			$list = com_shell::execute(system::getCmdSudo() . $pip . ' show speedtest-cli');
-			$lines = explode(PHP_EOL, $list);
-			foreach ($lines as $line) {
-				if ($line == 'Version: 2.1.4b1') {
-					$return['state'] = 'ok';
-				}
-			}
-			return $return;
-		} catch(Exception $exc) {
-			return $return;
-		}
+		// try {
+		// 	$pip = com_shell::execute(system::getCmdSudo() . 'which pip');
+		// } catch (Exception $exc) {
+		// 	log::add(__CLASS__, 'debug', 'Impossible de trouver pip ' . $exc);
+		// 	$return['state'] = 'nok';
+		// 	return $return;
+		// }
+		// $pip = rtrim($pip);
+		// try {
+		// 	$list = com_shell::execute(system::getCmdSudo() . $pip . ' show speedtest-cli');
+		// 	$lines = explode(PHP_EOL, $list);
+		// 	foreach ($lines as $line) {
+		// 		if ($line == 'Version: 2.1.4b1') {
+		// 			$return['state'] = 'ok';
+		// 		}
+		// 	}
+		// 	return $return;
+		//} catch(Exception $exc) {
+		//	return $return;
+		//}
 	}
 
     public static function dependancy_install() {
@@ -372,7 +372,7 @@ class speedtest extends eqLogic {
 			return $replace;
 		}
 		if ($cmd->execCmd() == 0) {
-			$replace['#image#'] = 'plugins/speedtest/doc/images/error.png';
+			$replace['#image#'] = 'plugins/speedtest/docs/images/error.png';
 		}
 		$version = jeedom::versionAlias($_version);
 		if ($this->getConfiguration('autAlt', 0) == 1) {

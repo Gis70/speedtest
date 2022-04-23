@@ -1,13 +1,13 @@
 .\" generated with Ronn/v0.7.3
 .\" http://github.com/rtomayko/ronn/tree/0.7.3
 .
-.TH "SPEEDTEST" "" "October 2019" "" ""
+.TH "SPEEDTEST" "" "November 2021" "" ""
 .
 .SH "Name"
 \fBspeedtest\fR \- Speedtest CLI by Ookla is the official command line client for testing the speed and performance of your internet connection\.
 .
 .SH "Version"
-1\.0\.0
+1\.1\.1
 .
 .SH "Synopsis"
 .
@@ -83,6 +83,9 @@ Output format (default = human\-readable) Note: Machine readable formats (csv, t
 .
 .IP "" 0
 
+.
+.IP "\(bu" 4
+\fB\-\-progress\-update\-interval\fR=\fIinterval\fR Progress update interval (100\-1000 milliseconds)
 .
 .IP "\(bu" 4
 \fB\-\-output\-header\fR Show output header for CSV and TSV formats
@@ -206,6 +209,21 @@ Upon successful execution, the application will exit with an exit code of 0\. Th
 Latency and jitter will be represented in milliseconds\. Download and upload units will depend on the output format as well as if a unit was specified\. The human\-readable format defaults to Mbps and any machine\-readable formats (csv, tsv, json, jsonl, json\-pretty) use bytes as the unit of measure with max precision\. Packet loss is represented as a percentage, or \fBNot available\fR when packet loss is unavailable in the executing network environment\.
 .
 .P
+The bytes per second measurements can be transformed into the human\-readable output format default unit of megabits (Mbps) by dividing the bytes per second value by 125,000\. For example:
+.
+.P
+38404104 bytes per second = 38404104 / 125 = 307232\.832 kilobits per second = 307232\.832 / 1000 = 307\.232832 megabits per second
+.
+.P
+The value 125 is derived from 1000 / 8 as follows:
+.
+.P
+1 byte = 8 bits 1 kilobit = 1000 bits
+.
+.P
+38404104 bytes per second = 38404104 * 8 bits per byte = 307232832 bits per second = 307232832 / 1000 bits per kilobit = 307232\.832 kilobits per second
+.
+.P
 The Result URL is available to share your result, appending \fB\.png\fR to the Result URL will create a shareable result image\.
 .
 .P
@@ -298,6 +316,47 @@ wget https://curl\.haxx\.se/ca/cacert\.pem
 .IP "" 0
 .
 .SH "Release Notes"
+.
+.SS "1\.1\.1 \- 11/15/2021"
+.
+.IP "\(bu" 4
+Fixed issue with reported client version in uploaded results
+.
+.IP "" 0
+.
+.SS "1\.1\.0 \- 10/27/2021"
+.
+.IP "\(bu" 4
+Use server\-side upload measurements
+.
+.IP "\(bu" 4
+Performance enhancement on upload tests for CPU constrained devices
+.
+.IP "\(bu" 4
+Security enhancements
+.
+.IP "\(bu" 4
+Fix for deadlock bug
+.
+.IP "\(bu" 4
+Fix crash due to race condition
+.
+.IP "\(bu" 4
+Fix crash in hostname resolution during test initialization
+.
+.IP "\(bu" 4
+Fix potential buffer overflow
+.
+.IP "\(bu" 4
+Update Boost to 1\.77\.0
+.
+.IP "\(bu" 4
+Update mbedTLS to 2\.27\.0
+.
+.IP "\(bu" 4
+Update cURL to 7\.78\.0
+.
+.IP "" 0
 .
 .SS "1\.0\.0 \- 10/29/2019"
 .

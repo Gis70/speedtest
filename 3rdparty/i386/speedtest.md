@@ -4,7 +4,7 @@
   **speedtest** - Speedtest CLI by Ookla is the official command line client for testing the speed and performance of your internet connection.
 
 ## Version
-  1.0.0
+  1.1.1
 
 ## Synopsis
 ```
@@ -52,6 +52,9 @@ Server.
     * **json**                 javascript object notation (compact)
     * **jsonl**                javascript object notation (lines)
     * **json-pretty**          javascript object notation (pretty)
+
+* **--progress-update-interval**=*interval*
+  Progress update interval (100-1000 milliseconds)
 
 * **--output-header**
   Show output header for CSV and TSV formats
@@ -120,6 +123,18 @@ Latency and jitter will be represented in milliseconds. Download and upload unit
 format as well as if a unit was specified. The human-readable format defaults to Mbps and any machine-readable
 formats (csv, tsv, json, jsonl, json-pretty) use bytes as the unit of measure with max precision. Packet loss is represented as a percentage, or **Not available** when packet loss is unavailable in the executing network environment.
 
+The bytes per second measurements can be transformed into the human-readable output format
+default unit of megabits (Mbps) by dividing the bytes per second value by 125,000.  For example:
+
+38404104 bytes per second = 38404104 / 125 = 307232.832 kilobits per second = 307232.832 / 1000 = 307.232832 megabits per second
+
+The value 125 is derived from 1000 / 8 as follows:
+
+1 byte = 8 bits
+1 kilobit = 1000 bits
+
+38404104 bytes per second = 38404104 * 8 bits per byte = 307232832 bits per second = 307232832 / 1000 bits per kilobit = 307232.832 kilobits per second
+
 The Result URL is available to share your result, appending **.png** to the Result URL will create a
 shareable result image.
 
@@ -181,6 +196,21 @@ downloaded into a specific location.  This specific location can be provided as 
     ./ookla --ca-certificate=./cacert.pem
 
 ## Release Notes
+
+### 1.1.1 - 11/15/2021
+* Fixed issue with reported client version in uploaded results
+
+### 1.1.0 - 10/27/2021
+* Use server-side upload measurements
+* Performance enhancement on upload tests for CPU constrained devices
+* Security enhancements
+* Fix for deadlock bug
+* Fix crash due to race condition
+* Fix crash in hostname resolution during test initialization
+* Fix potential buffer overflow
+* Update Boost to 1.77.0
+* Update mbedTLS to 2.27.0
+* Update cURL to 7.78.0
 
 ### 1.0.0 - 10/29/2019
 * Initial release

@@ -4,13 +4,6 @@ echo "********************************************************"
 echo "*             Installation des dépendances             *"
 echo "********************************************************"
 echo 0 > ${PROGRESS_FILE}
-echo "***** Commande: sudo apt-get update **********"
-sudo apt-get update
-echo 30 > ${PROGRESS_FILE}
-echo "***** Commande: install python-pip**********"
-sudo apt-get install -y python-pip
-echo "***** Commande: install speedtest-cli **********"
-pip install git+https://github.com/sivel/speedtest-cli.git
 echo "***** Commande: ajout domaine SpeedTest dans le security.conf d'Apache **********"
 cp /etc/apache2/conf-available/security.conf /etc/apache2/conf-available/security.conf.old
 sudo sed -i "s/img-src 'self'/& *.speedtest.net/" /etc/apache2/conf-available/security.conf
