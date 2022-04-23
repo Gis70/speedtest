@@ -20,13 +20,13 @@ $plugin = plugin::byId('speedtest');
               <i class="fas fa-wrench"></i>
             <br>
             <span >{{Configuration}}</span>
-            </div>            
-		</div>			
+            </div>
+		</div>
 		<legend>{{Mes Equipements}}</legend>
 		<input class="form-control" placeholder="{{Rechercher}}" id="in_searchEqlogic" />
 		<div class="eqLogicThumbnailContainer">
 		<?php
-			foreach ($eqLogics as $eqLogic) {				
+			foreach ($eqLogics as $eqLogic) {
 				$opacity = ($eqLogic->getIsEnable()) ? '' : 'disableCard';
 				echo '<div class="eqLogicDisplayCard cursor ' . $opacity . '" data-eqLogic_id="' . $eqLogic->getId() . '" >';
 				echo '<img src="' . $plugin->getPathImgIcon() . '" height="105" width="95" />';
@@ -45,12 +45,12 @@ $plugin = plugin::byId('speedtest');
 		</div>
 		<ul class="nav nav-tabs" role="tablist">
 			<li role="presentation"><a href="" class="eqLogicAction" aria-controls="home" role="tab" data-toggle="tab" data-action="returnToThumbnailDisplay"><i class="fas fa-arrow-circle-left"></i></a></li>
-			<li role="presentation" class="active"><a href="#eqlogictab" aria-controls="home" role="tab" data-toggle="tab"><i class="fas fa-tachometer"></i> {{Equipement}}</a></li>
+			<li role="presentation" class="active"><a href="#eqlogictab" aria-controls="home" role="tab" data-toggle="tab"><i class="fas fa-tachometer-alt"></i> {{Equipement}}</a></li>
 			<li role="presentation"><a href="#infotab" aria-controls="profile" role="tab" data-toggle="tab"><i class="fas fa-list-alt"></i> {{Configuration}}</a></li>
 			<li role="presentation"><a href="#infocmd" aria-controls="profile" role="tab" data-toggle="tab"><i class="fas fa-list-alt"></i> {{Commandes}}</a></li>
 		</ul>
 		<div class="tab-content" style="height:calc(100% - 50px);overflow:auto;overflow-x: hidden;">
-			<div role="tabpanel" class="tab-pane active" id="eqlogictab">  
+			<div role="tabpanel" class="tab-pane active" id="eqlogictab">
             	<form class="form-horizontal">
                 	<fieldset>
 					<br />
@@ -85,7 +85,7 @@ $plugin = plugin::byId('speedtest');
 								}
 							?>
 							</div>
-						</div>           
+						</div>
                 		<div class="form-group">
                   			<label class="col-md-2 control-label" >{{Activer}}</label>
 						    <div class="col-md-1">
@@ -115,20 +115,20 @@ $plugin = plugin::byId('speedtest');
 							<div class="col-sm-1">
 								<i class="fas fa-question-circle cursor floatright" id="bt_cronGenerator"></i>
 							</div>
-						</div>                     	
+						</div>
 					</div>
 					<br/>
 					<div class="form-group">
 						<label class="col-md-2 control-label">{{Id serveur}}</label>
 						<div class="col-md-1">
 							<input type="text"  class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="server_id" placeholder="Server id"/>
-						</div> 
-						<div class="col-md-1"> 
+						</div>
+						<div class="col-md-1">
 							<label class="control-label" >
 								<a class="btn btn-default eqLogicAction btn-sm" data-action="serverList"><i class="fas fa-server"></i> {{Serveurs}}</a>
-							</label>  
-						</div>       
-					</div>					
+							</label>
+						</div>
+					</div>
 					<br/>
 					<div class="form-group">
 						<label class="col-md-2 control-label">{{ Ookla }}</label>
@@ -138,7 +138,7 @@ $plugin = plugin::byId('speedtest');
 						<div class="form-group official">
 							<div class="col-md-1">
 								<input type="text" class="eqLogicAttr" data-l1key="configuration" data-l2key="arch" disabled/>
-							</div>							
+							</div>
 						</div>
 					</div>
 					<br/>
@@ -155,27 +155,27 @@ $plugin = plugin::byId('speedtest');
 								<option value="Gibps">{{Gibps}}</option>
 								<option value="B/s">{{B/s}}</option>
 								<option value="MB/s">{{MB/s}}</option>
-								<option value="GiB/s">{{GiB/s}}</option>									
+								<option value="GiB/s">{{GiB/s}}</option>
 							</select>
 						</div>
-					</div>						
-					<br/>  					
+					</div>
+					<br/>
 					<div class="form-group">
 						<label class="col-md-2 control-label">{{Widget alternatif}}</label>
 						<div class="col-md-1">
 							<input type="checkbox" class="eqLogicAttr speedtest-widgetType" data-l1key="configuration" data-l2key="autAlt"/>
-						</div>                   	
+						</div>
 					</div>
 					<br/>
 					<div class="form-group">
 						<label class="col-md-2 control-label">{{Widget Bétâ}}</label>
 						<div class="col-md-1">
 							<input type="checkbox" class="eqLogicAttr speedtest-widgetType" data-l1key="configuration" data-l2key="autAltBeta"/>
-						</div>                   	
-					</div>					
-				</form>                      
+						</div>
+					</div>
+				</form>
 			</div>
-			<div role="tabpanel" class="tab-pane" id="infocmd">  
+			<div role="tabpanel" class="tab-pane" id="infocmd">
 				<br />
 				<div class="col-md-1"></div>
 				<table style="width: 600px" id="table_cmd" class="table table-bordered table-condensed">
@@ -188,7 +188,7 @@ $plugin = plugin::byId('speedtest');
 						</tr>
 					</thead>
 					<tbody></tbody>
-				</table>             
+				</table>
 			</div>
 		</div>
 	</div>
