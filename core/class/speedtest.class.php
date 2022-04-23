@@ -48,6 +48,7 @@ class speedtest extends eqLogic {
 		$return['log'] = __CLASS__ . '_update';
 		$return['progress_file'] = jeedom::getTmpFolder(__CLASS__) . '/dependance';
 		$return['state'] = 'ok';
+		return $return;
 		// try {
 		// 	$pip = com_shell::execute(system::getCmdSudo() . 'which pip');
 		// } catch (Exception $exc) {
