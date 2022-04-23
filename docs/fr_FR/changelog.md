@@ -1,3 +1,9 @@
+23.04.2022
+===
+
+- Correction pour Jeedom 4.2 (Affichage du widget speedtest)
+- Correction installation dépendances (speedtest-cli)
+
 11.04.2021
 ===
 
@@ -39,7 +45,7 @@ XX-08-2019
 
 - Correction du bug sur le statut et chargement d'une image d'erreur si pas de connexion.
 
-16-01-2018 
+16-01-2018
 ===
 
 - Changement de commande pour meilleure compatibilité . Icone , changelog et graphique.
@@ -52,7 +58,7 @@ XX-08-2019
 13-09-2017
 ===
 
-- Ajout d'un widget . 
+- Ajout d'un widget .
 
 25-08-2017
 ===

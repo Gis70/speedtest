@@ -29,15 +29,15 @@ try {
 		$return = array('ip' => '','arch'=> '');
 		try {
 			$return['ip'] = speedtest::getIp();
-			$return['arch'] = speedtest::getArch();			
+			$return['arch'] = speedtest::getArch();
 		} catch (exception $exc) {
-			log::add(__CLASS__,'debug','Erreur récupération config : ' . $exc);	
+			log::add(__CLASS__,'debug','Erreur récupération config : ' . $exc);
 		}
 		ajax::success($return);
 	}
 	throw new Exception(__('Aucune methode correspondante à : ', __FILE__) . init('action'));
-/*     * *********Catch exeption*************** */
+/*     * *********Catch exception*************** */
 } catch (Exception $e) {
-	ajax::error(displayExeption($e), $e->getCode());
+	ajax::error(displayException($e), $e->getCode());
 }
 ?>
